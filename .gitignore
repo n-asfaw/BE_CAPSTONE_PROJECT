@@ -1,0 +1,15 @@
+# Virtual environment
+myenv/
+
+# Python cache files
+*.pyc
+__pycache__/
+
+# Django migrations
+blog/migrations/
+
+# Django static files
+static/
+
+# Django database files
+db.sqlite3
