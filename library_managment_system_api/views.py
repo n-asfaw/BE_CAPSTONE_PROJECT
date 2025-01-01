@@ -1,10 +1,8 @@
 from rest_framework import generics
 from .models import Book, Member, Loan
 from .serializers import BookSerializer, MemberSerializer, LoanSerializer
+from rest_framework.permissions import IsAuthenticated
 
-class BookList(generics.ListCreateAPIView):
-    queryset = Book.objects.all()
-    serializer_class = BookSerializer
 
 class BookDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Book.objects.all()
@@ -17,3 +15,12 @@ class MemberList(generics.ListCreateAPIView):
 class LoanList(generics.ListCreateAPIView):
     queryset = Loan.objects.all()
     serializer_class = LoanSerializer
+
+
+
+class BookList(generics.ListCreateAPIView):
+    permission_classes = [IsAuthenticated]
+    queryset = Book.objects.all()
+    serializer_class = BookSerializer
+
+# Repeat for other views you want to protect
